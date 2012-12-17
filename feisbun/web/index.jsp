@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%if(session.getAttribute("username") !=  null){ //If there's a user logged in%>
+<jsp:forward page="main.jsp"></jsp:forward>
+<%} else {%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -124,3 +127,4 @@
         </div>
     </body>
 </html>
+<%}%>

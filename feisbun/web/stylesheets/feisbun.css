@@ -21,7 +21,7 @@ body{
     margin: -8px;
     background-color: #3B5998;
 }
-.navbar-container{
+.navbar-container, .page{
     width: 900px;
     margin: 0 auto 0 auto;
 }
@@ -29,12 +29,13 @@ body{
     background-image: url("../images/feisbun-logo.png");
     width: 111px;
     height: 50px;
+    margin-right: 300px;
 }
 .welcome,.logout{
     float: left;
+    margin-left: 30px;
 }
 .button{
-    border: 1px #9a0000 dashed;
     color: white;
     font-weight: bold;
     -webkit-border-radius: 3px;
@@ -42,5 +43,79 @@ body{
     border-radius: 3px;
 }
 .signout{
+    border: 1px #9a0000 dashed;
     background-color: #9a0000;
+}
+.post{
+    border: 1px #3B5998 dashed;
+    background-color: #3B5998;
+    height: 30px;
+}
+.request{
+    border: 1px #3B5998 dashed;
+    background-color: #3B5998;
+    height: 50px;
+}
+.page{
+    height:auto;
+    color: darkslategray;
+}
+.requests{
+    background-color: white;
+    color: #3B5998;
+    position: fixed;
+    left: 20px;
+}
+.borderbox{
+    border: 1px solid darkslategray;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.comment-form p{
+    font-weight: 500;
+    font-size: 1.1em;
+    margin: 0;
+}
+.postcomment{
+    width: 800px;
+    margin: 0 auto 0 auto;
+}
+#comment-textarea{
+    width: 700px;
+    margin: 0 auto 0 auto;
+}
+.comment{
+    background-color: white;
+    width: 800px;
+    margin: 25px auto 25px auto;
+}
+.comment-info{
+    color: #3B5998;
+}
+.sender{
+    font-weight: bold;
+}
+.notification{
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.post-error{
+    color:red;
+    border: 1px red dotted;
+}
+.post-success{
+    color:blue;
+    border: 1px blue dotted;
+}
+.contacts{
+    width: 200px;
+    background-color: white;
+    color: #3B5998;
+    float: right;
+}
+.contact-entry img{
+    margin-left: 10px;
 }

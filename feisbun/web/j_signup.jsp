@@ -38,7 +38,8 @@
     n = dbConn.signup(username, password, bday, phone, street, colony, city, state, school, school_generation, school_degree, area, email);
     if(n!=0){
         session.setAttribute("username", email);
-        session.setAttribute("fullname", username);%>
+        session.setAttribute("fullname", username);
+        dbConn.markOnline(email);%>
     <jsp:forward page="main.jsp"></jsp:forward>        
 <%  }else{  %>
 <jsp:forward page="index.jsp">

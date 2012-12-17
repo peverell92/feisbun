@@ -14,7 +14,8 @@
     dbConn.signin(email, password);
     if(dbConn.rs.getRow() != 0){
         session.setAttribute("username", email);
-        session.setAttribute("fullname", dbConn.rs.getString("username"));%>
+        session.setAttribute("fullname", dbConn.rs.getString("username"));
+        dbConn.markOnline(email);%>
 <jsp:forward page="main.jsp"></jsp:forward>
 <%  }else{ %>
 <jsp:forward page="index.jsp">

@@ -40,66 +40,66 @@ public class MySqlConn {
 
     public int signup(String username, String password, Date birthdate, String phone,
             String street, String colony, String city, String state, String school, String school_gen,
-            String school_degree, String area, String email){
+            String school_degree, String area, String email) {
         PreparedStatement ps = null;
         int rModif = 0;
         initConnection();
-        try{
+        try {
             ps = conn.prepareStatement("INSERT INTO users(username,password,birthday,phone,address_street,address_colony,address_city,address_state,school,school_generation,school_degree,area,online,administrator,email) VALUES (?,MD5(?),?,?,?,?,?,?,?,?,?,?,?,?,?)");
             ps.setString(1, username);
             ps.setString(2, password);
             ps.setDate(3, birthdate);
-            ps.setString(4,phone);
-            ps.setString(5,street);
-            ps.setString(6,colony);
-            ps.setString(7,city);
-            ps.setString(8,state);
-            ps.setString(9,school);
-            ps.setString(10,school_gen);
-            ps.setString(11,school_degree);
-            ps.setString(12,area);
-            ps.setString(13,"0");
+            ps.setString(4, phone);
+            ps.setString(5, street);
+            ps.setString(6, colony);
+            ps.setString(7, city);
+            ps.setString(8, state);
+            ps.setString(9, school);
+            ps.setString(10, school_gen);
+            ps.setString(11, school_degree);
+            ps.setString(12, area);
+            ps.setString(13, "0");
             ps.setBoolean(14, false);
-            ps.setString(15,email);
+            ps.setString(15, email);
             rModif = ps.executeUpdate();
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             printErrors(ex);
         }
         return rModif;
     }
-    
-    public int hasUniqueEmail(String email){
+
+    public int hasUniqueEmail(String email) {
         PreparedStatement ps = null;
         rs = null;
         int r = 0;
         initConnection();
-        try{
+        try {
             ps = conn.prepareStatement("SELECT * FROM users WHERE email=?");
             ps.setString(1, email);
             rs = ps.executeQuery();
             rs.first();
             r = rs.getRow();
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             printErrors(ex);
         }
         return r;
     }
-    
-    public void signin(String email,String password){
+
+    public void signin(String email, String password) {
         PreparedStatement ps = null;
         rs = null;
         initConnection();
-        try{
+        try {
             ps = conn.prepareStatement("SELECT * FROM users WHERE email=? AND password=MD5(?)");
             ps.setString(1, email);
             ps.setString(2, password);
             rs = ps.executeQuery();
             rs.first();
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             printErrors(ex);
         }
     }
-    
+
     public void signinQuery(String username, String password) {
         PreparedStatement ps = null;
         initConnection();
@@ -113,7 +113,120 @@ public class MySqlConn {
             printErrors(ex);
         }
     }
-    
+
+    public void getCommentsFrom(String email) {
+        PreparedStatement ps = null;
+        initConnection();
+        try {
+            ps = conn.prepareStatement("SELECT * FROM comments WHERE user_to=?");
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            rs.afterLast();
+        } catch (SQLException ex) {
+            printErrors(ex);
+        }
+    }
+
+    public int sendComment(String user_from, String user_to, String text_content) {
+        //TODO
+        //Se necesita poder subir imagenes
+        PreparedStatement ps = null;
+        int r = 0;
+        initConnection();
+        try {
+            ps = conn.prepareStatement("INSERT INTO comments(user_from,user_to,text_content,sent_at) VALUES(?,?,?,CURDATE())");
+            ps.setString(1, user_from);
+            ps.setString(2, user_to);
+            ps.setString(3, text_content);
+            r = ps.executeUpdate();
+        } catch (SQLException ex) {
+            printErrors(ex);
+        }
+        return r;
+    }
+
+    public void markOnline(String email) {
+        PreparedStatement ps = null;
+        initConnection();
+        try {
+            ps = conn.prepareStatement("UPDATE users SET online=TRUE WHERE email=?");
+            ps.setString(1, email);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            printErrors(ex);
+        }
+    }
+
+    public void markOffline(String email) {
+        PreparedStatement ps = null;
+        initConnection();
+        try {
+            ps = conn.prepareStatement("UPDATE users SET online=FALSE WHERE email=?");
+            ps.setString(1, email);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            printErrors(ex);
+        }
+    }
+
+    public void getNameFrom(String user) {
+        PreparedStatement ps = null;
+        rs = null;
+        initConnection();
+        try {
+            ps = conn.prepareStatement("SELECT username FROM users WHERE email=?");
+            ps.setString(1, user);
+            rs = ps.executeQuery();
+            rs.first();
+        } catch (SQLException ex) {
+            printErrors(ex);
+        }
+    }
+
+    public void allows(String username, String allows_from) {
+        PreparedStatement ps = null;
+        rs = null;
+        initConnection();
+        try {
+            ps = conn.prepareStatement("SELECT * FROM allows WHERE username=? AND allows_from=?");
+            ps.setString(1, username);
+            ps.setString(2, allows_from);
+            rs = ps.executeQuery();
+            rs.first();
+        } catch (SQLException ex) {
+            printErrors(ex);
+        }
+    }
+
+    public int sendRequest(String to_user, String from_user) {
+        PreparedStatement ps = null;
+        int r = 0;
+        initConnection();
+        try {
+            ps = conn.prepareStatement("INSERT INTO requests(username,request_from) VALUES(?,?)");
+            ps.setString(1, to_user);
+            ps.setString(2, from_user);
+            r = ps.executeUpdate();
+        } catch (SQLException ex) {
+            printErrors(ex);
+        }
+        return r;
+    }
+
+    public void getRequestsFrom(String username) {
+        PreparedStatement ps = null;
+        rs = null;
+        initConnection();
+        try {
+            ps = conn.prepareStatement("SELECT * FROM requests WHERE username=?");
+            ps.setString(1, username);
+            rs = ps.executeQuery();
+            rs.beforeFirst();
+        } catch (SQLException ex) {
+            printErrors(ex);
+        }
+    }
+
     public void Consult(String query) {
         initConnection();
         //consulta...
@@ -222,8 +335,6 @@ public class MySqlConn {
         System.out.println("SQLState: " + ex.getSQLState());
         System.out.println("Error: " + ex.getErrorCode());
     }
-
-    
 }
 
 
