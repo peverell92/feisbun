@@ -9,10 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Feisbun</title>
     </head>
     <body>
-        <h1>Hello World!</h1><br>
-        <h1>Edited from the laptop yea!</h1>
+        <div class="header-index">
+            
+        </div>
+        <div class="content">
+            <div class="slogan"></div>
+            <div class="sign-up-form"></div>
+        </div>
     </body>
 </html>
