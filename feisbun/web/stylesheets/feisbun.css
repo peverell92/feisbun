@@ -21,6 +21,10 @@ body{
     margin: -8px;
     background-color: #3B5998;
 }
+.navbar a:link, a:visited, a:hover, a:active{
+    color: white;
+    text-decoration: none;
+}
 .navbar-container, .page{
     width: 900px;
     margin: 0 auto 0 auto;
@@ -41,6 +45,13 @@ body{
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
+}
+.fakebutton{
+    background-color: white;
+    border: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 .signout{
     border: 1px #9a0000 dashed;
@@ -115,7 +126,9 @@ body{
     width: 200px;
     background-color: white;
     color: #3B5998;
-    float: right;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
 }
 .contact-entry img{
     margin-left: 10px;

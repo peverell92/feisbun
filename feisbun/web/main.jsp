@@ -83,7 +83,7 @@
                         <tr><td style="float:right;"><button class="button post">Comentar</button></td></tr>
                     </table>
                     <input type="hidden" name="user_from" value="<%=(String) session.getAttribute("fullname")%>">
-                    <input type="hidden" name="user_to" value="<%=(String) session.getAttribute("fullname")%>">
+                    <input type="hidden" name="user_to" value="<%=(String) session.getAttribute("username")%>">
                 </form>
             </div>
 
@@ -126,8 +126,8 @@
                     boolean online = dbConn.rs.getBoolean("online");%>
             <div class="contact-entry">
                 <form action="userpage.jsp" method="post" class="userpage-form">
-                    <input type="hidden" name="user" value="<%=user_email%>">
-                    <p class="submit-action"><%=fullname%><%if (online) {%><img src="images/online.png" width="8px" height="8px"/><%}%></p>
+                    <input type="hidden" name="user_page" value="<%=user_email%>">
+                    <button class="fakebutton"><%=fullname%></button><%if (online) {%><img src="images/online.png" width="8px" height="8px"/><%}%>
                 </form>
             </div>
             <%}%>

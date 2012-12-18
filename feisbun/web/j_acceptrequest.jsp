@@ -10,7 +10,8 @@
     String request_from = request.getParameter("request_from");
     String user = (String) session.getAttribute("username");
     dbConn.removeRequest(user,request_from);
-    int r = dbConn.allowUpdate(user,request_from);
+    dbConn.allowUpdate(user,request_from);
+    int r = dbConn.allowUpdate(request_from,user);
     if(r!=0){%>
 <jsp:forward page="main.jsp">
     <jsp:param name="postSuccess" value="Usuario aceptado!"></jsp:param>
@@ -18,5 +19,5 @@
 <%} else { %>
 <jsp:forward page="main.jsp">
     <jsp:param name="postError" value="Hubo un error al procesar la solicitud. Vuelva a intentarlo"></jsp:param>
-</jsp:forward>
+</jsp:forward>%>
 <%}%>

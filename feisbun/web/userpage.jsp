@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="dbConn" class="mysql.MySqlConn"/>
-<%String user_page = request.getParameter("user");%>
+<%String user_page = request.getParameter("user_page");%>
 <%String current_user = (String) session.getAttribute("username");%>
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,7 @@
                         <td><div class="imagelogo"></div></td>
                         <td>
                             <div class="welcome">
-                                <p>Bienvenido <b><%=(String) session.getAttribute("fullname")%></b>!</p>
+                                <p>Bienvenido <b><a href="main.jsp"><%=(String) session.getAttribute("fullname")%></a></b>!</p>
                             </div>
                         </td>
                         <td>
