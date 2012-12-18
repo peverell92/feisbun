@@ -74,6 +74,33 @@
                     <input type="hidden" name="user_to" value="<%=user_page%>">
                 </form>
             </div>
+            <div class="comments">
+                <%
+                    dbConn.getCommentsFrom(user_page);
+                    while (dbConn.rs.previous()) {
+                        String user_from = dbConn.rs.getString("user_from");
+                        String sqlDate = dbConn.rs.getString("sent_at");
+                        String text = dbConn.rs.getString("text_content");
+                %>
+                <div class="comment borderbox">
+                    <div class="comment-info">
+                        <table>
+                            <tr><td class="sender"><%=user_from%></td></tr>
+                            <tr><td><%=sqlDate%></td></tr>
+                        </table>
+                    </div>
+                    <hr>
+                    <div class="comment-content">
+                        <table>
+                            <%if (dbConn.rs.getBlob("img_content") != null) {%>
+                            <tr><td>IMAGE</td></tr>
+                            <%}%>
+                            <tr><td><%=text%></td></tr>
+                        </table>
+                    </div>
+                </div>
+                <%}%>
+            </div>
             <%}%>
         </div>
     </body>

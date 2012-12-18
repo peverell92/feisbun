@@ -226,7 +226,37 @@ public class MySqlConn {
             printErrors(ex);
         }
     }
+    
+    public int removeRequest(String username, String request_from){
+        PreparedStatement ps = null;
+        int r = 0;
+        initConnection();
+        try {
+            ps = conn.prepareStatement("DELETE FROM requests WHERE username=? AND request_from=?");
+            ps.setString(1, username);
+            ps.setString(2, request_from);
+            r = ps.executeUpdate();
+        } catch (SQLException ex) {
+            printErrors(ex);
+        }
+        return r;
+    }
 
+    public int allowUpdate(String username, String allow_from){
+        PreparedStatement ps = null;
+        int r = 0;
+        initConnection();
+        try {
+            ps = conn.prepareStatement("INSERT INTO allows(username,allows_from) VALUES(?,?)");
+            ps.setString(1, username);
+            ps.setString(2, allow_from);
+            r = ps.executeUpdate();
+        } catch (SQLException ex) {
+            printErrors(ex);
+        }
+        return r;
+    }
+    
     public void Consult(String query) {
         initConnection();
         //consulta...

@@ -46,13 +46,20 @@
         <div class="page">
             <div class="requests">
                 <p><b>Tiene las siguientes solicitudes de amistad pendientes</b></p>
-                <%                    
+                <%
                     dbConn.getRequestsFrom(current_user);
                     while (dbConn.rs.next()) {
                         String request_from = dbConn.rs.getString("request_from");
-                        dbAux.Consult("SELECT * FROM users WHERE email='"+request_from+"'");
+                        dbAux.Consult("SELECT * FROM users WHERE email='" + request_from + "'");
                         String user_name = dbAux.rs.getString("username");%>
-                <p><%=user_name%></p>
+                <form action="j_acceptrequest.jsp" method="post">
+                    <input type="hidden" name="request_from" value="<%=request_from%>">
+                    <table>
+                        <tr><td><%=user_name%></td><td>
+                                <button class="button post">Aceptar</button>
+                            </td></tr>
+                    </table>
+                </form>
                 <%}%>
             </div>
             <%if (request.getParameter("postError") != null) {%>
@@ -81,7 +88,7 @@
             </div>
 
             <div class="comments">
-                <%                    
+                <%
                     String username = (String) session.getAttribute("username");
                     dbConn.getCommentsFrom(username);
                     while (dbConn.rs.previous()) {
@@ -110,7 +117,7 @@
             </div>
         </div>
         <div class="contacts">
-            <%                
+            <%
                 dbConn.Consult("SELECT * FROM users WHERE id>1");
                 dbConn.rs.beforeFirst();
                 while (dbConn.rs.next()) {

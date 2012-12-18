@@ -65,6 +65,7 @@ body{
     color: #3B5998;
     position: fixed;
     left: 20px;
+    width: 150px;
 }
 .borderbox{
     border: 1px solid darkslategray;
