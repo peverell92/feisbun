@@ -28,7 +28,10 @@
                             <tr>
                                 <td><input type="text" id="email-singin" name="email" class="inputbox"></td>
                                 <td><input type="password" id="password-signin" name="password" class="inputbox"></td>
-                                <td><button class="button" type="submit">Entrar</button></td>
+                            </tr>
+                            <tr>
+                                 <td><input type="checkbox" name="recordar" value="remmember">Recordarme</td>
+                                 <td><button class="button" type="submit">Entrar</button></td>
                             </tr>
                         </table>
                     </form>
