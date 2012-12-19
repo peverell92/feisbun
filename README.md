@@ -3,15 +3,16 @@ feisbun
 La página deberá contener las siguientes secciones:
    Usuarios:
     o Registro de usuario e Inicio de sesión.
-     Los datos que tendrá que almacenar de cada usuarios son datos como:
-       Nombres
-       Apellidos
-       Fecha de nacimiento
-       E-mail
-       teléfono
-       Domicilio (calle, colonia, ciudad, estado)
-       Escuela de procedencia (nombre de la escuela, generación, estudios)
-       Área en la que trabaja (dentro de la empresa)
+       Los datos que tendrá que almacenar de cada usuarios son datos como:
+         Nombres
+         Apellidos
+         Fecha de nacimiento
+         E-mail
+         teléfono
+         Domicilio (calle, colonia, ciudad, estado)
+         Escuela de procedencia (nombre de la escuela, generación, estudios)
+         Área en la que trabaja (dentro de la empresa)
+
 Nota: únicamente se podrán dar de alta usuarios con correo de la empresa (por ejemplo: 
 correo@miempresa.com)
     o Cada usuario podrá tener un muro, en el cual empleados de la misma empresa puedan 
@@ -23,8 +24,7 @@ correo@miempresa.com)
    Administrador:
     o Administración de usuarios (altas, bajas, cambios)
     o Enviar avisos y comentarios sobre la empresa a todos los usuarios
-   Además de lo anterior se plantea incluir un mensajero que permita la comunicación entre los   
-    miembros de la empresa. Cada usuario podrá mandar mensajes y recibirlos en tiempo real. 
+   Además de lo anterior se plantea incluir un mensajero que permita la comunicación entre los miembros de la empresa. Cada usuario podrá mandar mensajes y recibirlos en tiempo real. 
   Para lo anterior utilice AJAX.2
 
   NOTA: 
