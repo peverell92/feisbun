@@ -10,7 +10,7 @@
 <jsp:forward page="main.jsp"></jsp:forward>
 <%} else {
     String email = request.getParameter("email");
-    String password = request.getParameter("password");
+    String password = request.getParameter("password");  
     dbConn.signin(email, password);
     if(dbConn.rs.getRow() != 0){
         session.setAttribute("username", email);

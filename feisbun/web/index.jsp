@@ -30,7 +30,7 @@
                                 <td><input type="password" id="password-signin" name="password" class="inputbox"></td>
                             </tr>
                             <tr>
-                                 <td><input type="checkbox" name="recordar" value="remmember">Recordarme</td>
+                                 <td><input type="checkbox" name="recordar" checked>Recordarme</td>
                                  <td><button class="button" type="submit">Entrar</button></td>
                             </tr>
                         </table>

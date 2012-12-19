@@ -29,6 +29,18 @@ body{
     width: 900px;
     margin: 0 auto 0 auto;
 }
+.barraAdmin {
+    width: 101%;
+    height: 30px;
+    position: fixed;
+    top:60px;
+    margin: -8px;
+    background-color: #0B4C5F;
+}
+.barraAdmin a:link, a:visited, a:hover, a:active{
+    color: white;
+    text-decoration: none;
+}
 .imagelogo{
     background-image: url("../images/feisbun-logo.png");
     width: 111px;

@@ -42,6 +42,15 @@
                 </table>
             </div>
         </div>
+       <div class="barraAdmin">
+           <table>
+               <tr>
+                   <td><a href="altas.jsp">Dar de alta un usuario</a></td><td>         </td>
+                   <td><a href="bajas.jsp">Dar de baja un usuario</a></td><td>         </td>
+                   <td><a href="cambios.jsp">Cambiar datos</a></td>
+               </tr>
+           </table>
+       </div>
         <div style="height:60px;"></div>
         <div class="page">
             <div class="requests">
