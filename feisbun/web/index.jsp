@@ -102,8 +102,7 @@
                                 <li><input type="text" id="address_city" name="address-city" class="inputbox signupbox" data-default="1">
                                 <li><input type="text" id="address_state" name="address-state" class="inputbox signupbox" data-default="1">
                                 <li><input type="text" id="school" name="school" class="inputbox signupbox" data-default="1">
-                                <li><span>
-                                        <p>Generación</p>
+                                <li><span><p>Generación</p>
                                         <select name="school-generation" data-default="0">
                                             <% for(int i=1970;i<=2013;i++){%>
                                                 <option value="<%=i%>"><%=i%></option>

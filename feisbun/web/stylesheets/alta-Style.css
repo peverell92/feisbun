@@ -9,4 +9,116 @@
 root { 
     display: block;
 }
-
+body{
+    font-family: "Helvetica Neue",Arial,sans-serif;
+    color: white;
+    background-color: #F7F7F7;
+}
+.navbar{
+    width: 101%;
+    height: 60px;
+    position: fixed;
+    margin: -8px;
+    background-color: #3B5998;
+}
+.navbar a:link, a:visited, a:hover, a:active{
+    color: white;
+    text-decoration: none;
+}
+.navbar-container{
+    width: 900px;
+    margin: 0 auto 0 auto;
+}
+.barraAdmin {
+    width: 101%;
+    height: 30px;
+    position: fixed;
+    top:60px;
+    margin: -8px;
+    background-color: #0B4C5F;
+}
+.barraAdmin a:link, a:visited, a:hover, a:active{
+    color: white;
+    text-decoration: none;
+}
+.imagelogo{
+    background-image: url("../images/feisbun-logo.png");
+    width: 111px;
+    height: 50px;
+    margin-right: 300px;
+}
+.welcome,.logout{
+    float: left;
+    margin-left: 30px;
+}
+.buttonOut{
+    color: white;
+    font-weight: bold;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.signout{
+    border: 1px #9a0000 dashed;
+    background-color: #9a0000;
+}
+.content{
+    display: inline;
+    background-color: lightgray;
+    color: black;
+}
+.floatingblock{
+    float: left;
+}
+.container{
+    width:1000px;
+    margin: 0 auto 0 auto;
+}
+.slogan{
+    width: 400px;
+}
+.slogan p{
+    font-weight: bold;
+    font-size: 2em;
+}
+.error-messages p{
+    color:red;
+    font-weight: bold;
+    font-size: 1.1em;
+    border: 1px red dotted;
+    text-align: center;
+}
+.sign-up-form ul{
+    list-style-type: none;
+}
+.submit-button{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-image: linear-gradient(bottom, rgb(0,105,7) 48%, rgb(4,201,17) 94%);
+    background-image: -o-linear-gradient(bottom, rgb(0,105,7) 48%, rgb(4,201,17) 94%);
+    background-image: -moz-linear-gradient(bottom, rgb(0,105,7) 48%, rgb(4,201,17) 94%);
+    background-image: -webkit-linear-gradient(bottom, rgb(0,105,7) 48%, rgb(4,201,17) 94%);
+    background-image: -ms-linear-gradient(bottom, rgb(0,105,7) 48%, rgb(4,201,17) 94%);
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.48, rgb(0,105,7)),
+	color-stop(0.94, rgb(4,201,17))
+    );
+    color: white;
+    font-weight: 500;    
+    border: 0px;
+    font-size: 2em;
+}
+.signupbox{
+    height:45px;
+    width:110%;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: darkslategray;
+}
+.inputbox{
+    border: 1px black solid;
+}
