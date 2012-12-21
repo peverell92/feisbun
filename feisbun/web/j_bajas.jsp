@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Feisbun ::: Bajas</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Se supone que aqui van a dar de baja xD</h1>
     </body>
 </html>
