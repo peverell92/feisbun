@@ -27,18 +27,18 @@
     int n = 0;
     n = dbConn.hasUniqueEmail(email);
     if(n!=0){%>
-<jsp:forward page="j_altas.jsp">
+<jsp:forward page="altas.jsp">
     <jsp:param name="db-error" value="Ya existe tal usuario"></jsp:param>
 </jsp:forward>
 <%  }
     n = dbConn.signup(username, password, bday, phone, street, colony, city, state, school, school_generation, school_degree, area, email);
     if(n!=0){
       %>
-   <jsp:forward page="j_altas.jsp">
+   <jsp:forward page="altas.jsp">
     <jsp:param name="db-error" value="Usuario Creado"></jsp:param>
 </jsp:forward>       
 <%  }else{  %>
-<jsp:forward page="j_altas.jsp">
+<jsp:forward page="altas.jsp">
     <jsp:param name="db-error" value="Hubo un error en la base de datos"></jsp:param>
 </jsp:forward>      
 <%  }
